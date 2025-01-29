@@ -3,9 +3,9 @@
 # Variables
 GITHUB_REPOSITORY="https://github.com/RomilMovaliya/DemoPractical.git"
 
-DIRECTORY_OF_PROJECT="$1" # that shows Project directory path (Here We Passed as an argument)
+DIRECTORY_OF_PROJECT="$1" # (/home/DevOps/Github_local_repo) that shows Project directory path (Here We Passed as an argument)
 
-DIRECTORY_OF_BACKUP="$2"  # that shows Backup directory path (This is a directory Where backups will be stored)
+DIRECTORY_OF_BACKUP="$2"  # (/home/DevOps/backupwala) that shows Backup directory path (This is a directory Where backups will be stored)
 
 NAME_OF_THE_BACKUP="backup_$(date +'%Y-%m-%d_%H-%M-%S').zip" #Here backup name start like "backup_" with date in yyyy-mm-dd hour-minute-second and with.zip extension
 
@@ -27,7 +27,7 @@ mkdir -p "$DIRECTORY_OF_BACKUP"
 git clone "$GITHUB_REPOSITORY" "$DIRECTORY_OF_PROJECT"
 
 # Create a backup
-zip -r "$DIRECTORY_OF_BACKUP/$NAME_OF_THE_BACKUP" "$DIRECTORY_OF_PROJECT"
+zip -r "$DIRECTORY_OF_BACKUP/$NAME_OF_THE_BACKUP" "$DIRECTORY_OF_PROJECT" # zip [file_name.zip] [file_name]
 
 # when our backup file is created then it print the Log of backup and store it in logfile.
 echo "$(date): Created backup $NAME_OF_THE_BACKUP" >> "$LOG_FILE"
